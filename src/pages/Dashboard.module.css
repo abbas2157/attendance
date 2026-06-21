@@ -1,0 +1,123 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.errorBanner {
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 12.5px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #fde68a;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+}
+
+/* ── Activity ──────────────────────────────────────────────────────────────── */
+.activityList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--surface);
+}
+.activityItem:last-child { border-bottom: none; }
+.actIcon {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.actIn  { background: #d1fae5; color: #065f46; }
+.actOut { background: var(--primary-bg); color: var(--primary); }
+.actBody { flex: 1; min-width: 0; }
+.actName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.actAction { font-size: 11px; color: var(--text3); margin-top: 1px; }
+.actTime   { font-size: 11px; color: var(--text3); flex-shrink: 0; }
+
+/* ── Warehouse bars ────────────────────────────────────────────────────────── */
+.wbList { display: flex; flex-direction: column; gap: 14px; }
+.wbRow  {}
+.wbHead {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.wbName  { font-weight: 500; color: var(--text); }
+.wbCount { color: var(--text3); }
+.wbTrack {
+  height: 7px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.wbFill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width .6s ease;
+  min-width: 4px;
+}
+
+.lastUpdated {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 18px;
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .grid {
+    gap: 12px;
+  }
+
+  .activityItem {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .actTime {
+    grid-column: 2;
+  }
+
+  .lastUpdated {
+    text-align: left;
+  }
+}
